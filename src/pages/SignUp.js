@@ -15,7 +15,7 @@ const SignUp = () => {
                         ></div>
                         <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
                             <div className="px-8 mb-4 text-center">
-                                <h3 className="pt-4 mb-2 text-2xl">CONNECTION</h3>
+                                <h3 className="pt-4 mb-2 text-2xl">CONNEXION</h3>
                                 <p className="mb-4 text-sm text-gray-700">
                                     Veuillez vous connecter.
                                 </p>
@@ -46,7 +46,7 @@ const SignUp = () => {
                                         className="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
                                         type="button"
                                     >
-                                        CONNECTION
+                                        CONNEXION
                                     </button>
                                 </div>
                                 <hr className="mb-6 border-t" />

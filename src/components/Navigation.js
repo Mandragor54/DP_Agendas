@@ -6,7 +6,7 @@ const Navigation = () => {
         <div className="shadow-lg font-bold z-40 flex h-16 w-full items-center  place-content-evenly">
             <div className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
                 <NavLink to="/sign_up" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-                    <p> CONNECTION</p>
+                    <p> CONNEXION</p>
                 </NavLink>
             </div>
             |
