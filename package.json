@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "PORT=8500 react-scripts start",
-    "update-css" : "npx tailwindcss-cli build -i css/tailwind.css -o build/tailwind.css"
+    "update-css" : "npx tailwindcss-cli build -i css/tailwind.css -o src/tailwind.css"
   },
   "browserslist": {
     "production": [

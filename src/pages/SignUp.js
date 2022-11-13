@@ -53,7 +53,7 @@ const SignUp = () => {
                                 <div className="text-center">
                                     <a
                                         className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                        href="./sign_up.html"
+                                        href="./sign_in"
                                     >
                                         Create an Account!
                                     </a>
