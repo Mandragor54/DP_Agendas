@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation.js';
+import { NavLink } from 'react-router-dom'
+
 
 const SignUp = () => {
 
@@ -51,12 +53,11 @@ const SignUp = () => {
                                 </div>
                                 <hr className="mb-6 border-t" />
                                 <div className="text-center">
-                                    <a
-                                        className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                        href="./sign_in"
-                                    >
-                                        Create an Account!
-                                    </a>
+                                    <div className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
+                                    <NavLink to="/sign_up" className={(nav) => (nav.isActive ? "nav-active" : "")}>
+                                        créer un compte 
+                                    </NavLink>    
+                                    </div>
                                 </div>
                             </form>
                         </div>
