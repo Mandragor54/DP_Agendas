@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation.js';
-import MonthlyCalendar from '../components/monthly_calendar.js';
+import MonthlyCalendar from '../components/MonthlyCalendar.js';
 
 const Home = () => {
 

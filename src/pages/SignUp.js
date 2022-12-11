@@ -54,7 +54,7 @@ const SignUp = () => {
                                 <hr className="mb-6 border-t" />
                                 <div className="text-center">
                                     <div className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
-                                    <NavLink to="/sign_up" className={(nav) => (nav.isActive ? "nav-active" : "")}>
+                                    <NavLink to="/sign_in" className={(nav) => (nav.isActive ? "nav-active" : "")}>
                                         créer un compte 
                                     </NavLink>    
                                     </div>
