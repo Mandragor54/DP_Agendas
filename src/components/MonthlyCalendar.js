@@ -1,25 +1,34 @@
 import React from "react";
+import Calendar from 'react-calendar';
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import Day from './Day.js';
 
+const MonthlyCalendar = () => {
 
-const MonthlyCalendar = () =>{
- return(
-    <div className="shadow-lg font-bold z-40 flex h-16 w-full items-center  place-content-evenly">
-    <div className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
-        <NavLink to="/sign_up" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-            <p> CONNEXION</p>
-        </NavLink>
-    </div>
-    |
-    <div className="transform skew-y-3 bg-blue-500 inline-block">
-        <div className="m-2 transform -skew-y-3 text-2xl font-semibold">
-            <NavLink to="/sign_in" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-                <p> INSCRIPTION </p>
-            </NavLink>
+    const [date, setDate] = useState(new Date());
+    const [showTime, setShowTime] = useState(false) 
+
+    return (
+        <div className="Calendar">
+            <div className="calendar-container">
+                <Calendar onChange={setDate} value={date} />
+            </div>
+            {date.length > 0 ? (
+                <p>
+                    <span>Start:</span>
+                    {date[0].toDateString()}
+                    <span>End:</span>{date[1].toDateString()}
+                </p>
+            ) : (
+                <p>
+                </p>
+            )
+            }
+            <Day showTime={showTime} date={date} />
+
         </div>
-    </div>
-</div>
- );
+    )
 };
 
 export default MonthlyCalendar;
