@@ -2,7 +2,7 @@ import React from "react";
 import Calendar from 'react-calendar';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import Day from './Day.js';
+import Day from './DayBox.js';
 
 const MonthlyCalendar = () => {
 
