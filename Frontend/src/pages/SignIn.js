@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation.js';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
+
 
 const SignIn = () => {
 
@@ -9,15 +10,16 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
 
     const post_method = () => {
-
+        function handle(response){
+            alert(response);
+        }
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ [username]: password })
+            body: JSON.stringify({'username': username, 'password': password })
         };
-        fetch('http://localhost:8000/api/accounts', requestOptions)
-            .then(response => response.json())
-            .then(data => setPostId(data.id));
+        fetch('http://localhost:8000/api/accounts/connection', requestOptions)
+            .then(response => handle(response));
     }
 
     return (
@@ -32,9 +34,9 @@ const SignIn = () => {
                         ></div>
                         <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
                             <div className="px-8 mb-4 text-center">
-                                <h3 className="pt-4 mb-2 text-2xl">INSCRIPTION</h3>
+                                <h3 className="pt-4 mb-2 text-2xl">CONNECTION</h3>
                                 <p className="mb-4 text-sm text-gray-700">
-                                    Formulaire d'inscription
+                                    Formulaire de connection
                                 </p>
                             </div>
                             <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
@@ -58,7 +60,7 @@ const SignIn = () => {
                                         className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                         id="mdp"
                                         value={password}
-                                        type="mdp"
+                                        type="password"
                                         placeholder="*****"
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
@@ -69,14 +71,14 @@ const SignIn = () => {
                                         type="submit"
                                         disabled = {username.length == 0 || password.length == 0}
                                     >
-                                        CRÉER UN COMPTE
+                                        CONNECTION
                                     </button>
                                 </div>
                                 <hr className="mb-6 border-t" />
                                 <div className="text-center">
                                     <div className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
                                         <NavLink to="/sign_up" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-                                            Connectez-vous
+                                            Creez un compte
                                         </NavLink>
                                     </div>
                                 </div>
