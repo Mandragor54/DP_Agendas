@@ -1,35 +1,44 @@
 import React from 'react'
 import {useState} from 'react';
 import Calendar from 'react-calendar';
-import './MonthlyCalendar.js';
-
-const time = ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00']
+import './calendar/MonthlyCalendar.js';
+import EventBox from './EventBox.js';
 
 function Day(props) {
 
- const [event, setEvent] = useState(null)
- const [info, setInfo] = useState(false)
+ function hours() {
+  let items = [];
+  for (let i = 0; i < 24; i++) {
+    items.push(<div class="h-40 border-t border-black">{i} h</div>);
+  }
+  return items
+}
+function addEvent(event,percent){
+  const h = (parseInt(event.end.hours)-parseInt(event.start.hours))*10 + (parseInt(event.end.minutes)-parseInt(event.start.minutes))/15*2.5;
+  const offset = parseInt(event.start.hours)*10+ parseInt(event.start.minutes)/15*2.5;
+  return <div class="absolute" style={{height: h+'rem',width: percent+'%', 'margin-top': offset+'rem'}}><EventBox description={event.description} start={event.start} end={event.end} color="red"/></div>
+  
+}
 
- function displayInfo(e) {
-   setInfo(true);
-   setEvent(e.target.innerText);
+function addEvents(events){
+  let items = [];
+  for (let indice in events.events) {
+    items.push( addEvent(events.events[indice],100));
+  }
+  return <div>{items}</div>;
 }
 
 return (
  
- <div className="day">
-   {time.map(times => {
-    return (
-    <div>
-      <button onClick={(e)=> displayInfo(e)}> {times} </button>
-    </div>
-        )
-     })}
-    <div>
-      {info ? `Your appointment is set to ${event} ${props.date.toDateString()}` : null}
-    </div>
+ <div class="flex">
+  <div class="absolute z-0 w-48">
+  {hours()}
+  </div>
+  <div id="events" class='absolute w-40 opacity-80 ml-8'>
+    {addEvents({events:[{description:"partiel math", start:{hours:'1',minutes:'15'},end:{hours:'2',minutes:'15'}},{description:"partiel info",start:{hours:'4',minutes:'15'},end:{hours:'5',minutes:'15'}}]})}
+  </div>
  </div>
-  )
-}
+  );
+};
 
 export default Day;
