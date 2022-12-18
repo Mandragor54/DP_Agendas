@@ -32,6 +32,7 @@ function get_event_data(id){
                 if(err)
                 {
                     console.log(err);
+                    res.sendStatus(500);
                 };
                 if(docs[0]==null) //docs == [] doesn't work....
                 {
@@ -41,12 +42,14 @@ function get_event_data(id){
                             if(err)
                             {
                                 console.log(err);
+                                res.send("ERREUR_DB");
                             };
+                            res.sendStatus(200)
                             res.send(newDoc._id);
                         })
-                }else
+                }els
                 {
-                    res.send("ERREUR_DOUBLE");
+                    res.sendStatus(404);
                 }
             })
         
@@ -66,12 +69,14 @@ function get_event_data(id){
                 if(err)
                 {
                     console.log(err);
+                    res.sendStatus(500)
                 };
                 if(docs[0]==null) //docs == [] doesn't work....
                 {
-                    res.send("ERREUR_CONNECTION");
+                    res.sendStatus(404)
                 }else
                 {
+                    res.status(200)
                     res.send(docs[0]._id);
                 }
             })
