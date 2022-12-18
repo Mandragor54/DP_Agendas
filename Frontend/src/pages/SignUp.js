@@ -16,8 +16,7 @@ const SignUp = () => {
             body: JSON.stringify({'username': username, 'password': password })
         };
         fetch('http://localhost:8000/api/accounts/inscription', requestOptions)
-            .then(response => alert(response))
-            .then(data => setPostId(data.id));
+        .map(response => response.json()).then(data => alert(data[0]))
     }
 
     return (
@@ -38,7 +37,7 @@ const SignUp = () => {
                                 </p>
                             </div>
                             <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
-                                onSubmit={(e) => { e.preventDefault(); post_method(); window.location = "/" }}>
+                                onSubmit={(e) => { e.preventDefault(); post_method(); }}>
                                 <div className="mb-4">
                                     <label className="block mb-2 text-sm font-bold text-gray-700" for="email">
                                         Email

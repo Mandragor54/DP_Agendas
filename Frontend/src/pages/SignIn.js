@@ -4,8 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 
 const SignIn = () => {
-
-
+    // window.location = "/"
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -40,7 +39,7 @@ const SignIn = () => {
                                 </p>
                             </div>
                             <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
-                                onSubmit={(e) => { e.preventDefault(); post_method(); window.location = "/" }}>
+                                onSubmit={(e) => { e.preventDefault(); post_method(); }}>
                                 <div className="mb-4">
                                     <label className="block mb-2 text-sm font-bold text-gray-700" for="email">
                                         Email
