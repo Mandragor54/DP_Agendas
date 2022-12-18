@@ -17,8 +17,8 @@ const PORT = 8000;
     //API initialisation
     app.use(cors());
     app.post("/api/accounts", (req, res) => {
-        console.log(req.body);
-        db_accounts.insert(JSON.stringify(req.body));
+        console.log(req.body,JSON.stringify(req.body),db_accounts.getAllData());
+        db_accounts.insert(req.body,(err) =>(console.log(err)));
         res.send(req.body);
     });
 
